@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Iframe页面内容嵌套</title>
+    <style>
+     #app {
+        width: 100%;
+        height: 600px;
+     }   
+    </style>
+</head>
+<body>
+    <div id = 'app'>
+        <h2>Iframe页面内容嵌套</h2>
+        <iframe id="mainContent" width="100%" height="100%" frameborder = "0" name ="seeyii" src = 'http://192.168.1.45:8080/app/html/iframe.html' ></iframe>
+    </div>
+    <button onClick = 'callChild()'>call child</button>
+</body>
+<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript">
+    document.onready = function() {
+        var tagLable = $('mainContent')
+        if(tagLable) {
+            var truck = window.frames["seeyii"].document.getElementsByClassName('son');
+            console.log(truck,'@@@@')
+        }
+    
+    };
+    function parentFunction() {  
+        alert('function in parent');  
+    }  
+      
+    function callChild() {  
+        //seeyii 为iframe的name属性值，不能为id，因为在FireFox下id不能获取iframe对象  
+        seeyii.window.childFunction();  
+    }  
+
+</script>
+</html>
+--------------------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>我是iframe页面</title>
+    <style>
+        #app {
+            width: 200px;
+            height: 200px;
+            background: #000;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div id = 'app'>我是iframe页面</div>
+    <span class = 'son'>1</span>
+    <span class = 'son'>2</span>
+    <input type="button" value="call parent" onclick="callParent()"/> 
+</body>
+<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript">
+    var a = $('.son');
+    
+    function childFunction() {  
+        alert('function in child');  
+    }  
+      
+    function callParent() {  
+        parent.parentFunction();  
+    }  
+</script>
+</html>
