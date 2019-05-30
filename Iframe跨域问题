@@ -1,0 +1,3 @@
+主域相同  子域不相同的情况下可以通过设置 
+document.domain = "xxxx.com";  再通过Iframe 从而解决跨域问题 
+备注： （xxx.com是主域，a.xxx.com就是子域    简单点说一个.就是主域  多个.就是子域）
