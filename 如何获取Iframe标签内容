@@ -1,0 +1,14 @@
+
+#获取iframe中的元素
+// 格式：
+window.frames["iframe的name值"].document.getElementById("iframe中控件的ID")  
+// 实例
+window.frames["ifm"].document.getElementById("btnOk");
+
+----------------------------------------------------------------------------------
+
+# 在iframe中获取父窗口的元素
+// 格式：
+window.parent.document.getElementById("父窗口的元素ID") 
+// 实例：
+window.parent.document.getElementById("btnOk")
