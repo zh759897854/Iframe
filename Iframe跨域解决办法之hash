@@ -1,0 +1,15 @@
+location.hash原理：
+1、动态改变location.hash，iframe不会重载
+2、无论跨域与否，iframe内可以获取自己的location.hash
+3、只要域名相同就能通信，即使ABC三层嵌套
+location.hash通用解决办法：
+被嵌入的跨域的iframe中引入
+<script src="/js/crossdomain/crossdomain.js"></script>
+
+提供以下方法：
+JJcrossiframe.setHeight(‘youiframeID’) //自动设定跨域iframe高度
+JJcrossiframe.setWidth(‘youiframeID’)  //自动设定跨域iframe宽度
+JJcrossiframe.callback(‘fn’，paramobj)  //调用顶层iframe中fn函数
+JJcrossiframe.init(paramobj , type)             //自定义向顶层传参数
+//  (type目前有：height,width,callback),
+//  新增type需在代理页面内自定义开发
