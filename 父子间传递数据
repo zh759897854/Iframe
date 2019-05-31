@@ -1,0 +1,14 @@
+
+发送数据***********************************************
+## window.postMessage(msg,targetOrigin) 如果是Iframe  那就是是contentwindow.postMessage(msg,targetOrigin)
+#msg  可以使string arry object blooen 等
+#targetOrigin  这个参数称作“目标域”，注意啦，是目标域不是本域！比如，你想在2.com的网页上往1.com网页上传消息，
+那么这个参数就是“http://1.com/”，而不是2.com.另外，一个完整的域包括：协议，主机名，端口号。如：http://g.cn:80/
+接收数据***********************************************        
+##window.addEventListener('message',function(event){}
+#1,data：顾名思义，是传递来的message
+#2,source：发送消息的窗口对象
+#3,origin：发送消息窗口的源（协议+主机+端口号）.比如从2.com往1.com发了消息，那么1.com收到消息时，
+e.origin就是2.com 最重要的就是data了，你可以用e.data取得他，然后做后续操作了。不过为了安全，
+你最好先判断一下e.source和e.origin是不是正确来源，再作操作数据
+
