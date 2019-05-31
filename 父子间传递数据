@@ -1,6 +1,7 @@
 
 发送数据***********************************************
 ## window.postMessage(msg,targetOrigin) 如果是Iframe  那就是是contentwindow.postMessage(msg,targetOrigin)
+#父向子 window.postMessage() 子向父 window.aprent.postMessage()
 #msg  可以使string arry object blooen 等
 #targetOrigin  这个参数称作“目标域”，注意啦，是目标域不是本域！比如，你想在2.com的网页上往1.com网页上传消息，
 那么这个参数就是“http://1.com/”，而不是2.com.另外，一个完整的域包括：协议，主机名，端口号。如：http://g.cn:80/
