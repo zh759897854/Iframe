@@ -1,0 +1,5 @@
+ 把site1和site2项目分别放在不同端口的tomcat下运行，访问site1的index.html页面，这是入口页面。
+ 在site1的index.html页面中用iframe访问显示site2的index.html页面，再通过操作site2的index.html页面调用site1的index.html页面中的方法excute，
+ 要调用此方法就要利用到中间代理页面site1中的iframe.html，这个是一个关键页面，因为所有需要跨域的访问都要通过这个页面来调用site1项目中的代码。
+ 这样就形成了自己调用自己的代码也就不会出现跨域了。在这个执行过程中site2的index.html页面中的crossFrame方法起到了关键作用，就是通过它来调用代理页面的。
+--------------------
